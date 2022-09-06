@@ -10,6 +10,9 @@ class Form{
         $this->method = $method;
 
         //1  créer les opérations de la fonction
-        echo "<form method = ' ".$method . "'>";
+        echo "<form method = ' ".$method . "'><fieldset>";
+
+
     }
+
 }
