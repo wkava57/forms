@@ -30,7 +30,7 @@ class Form
     public function setSubmit(): void
     {
         // echo "<bouton type = 'submit' value = 'Envoyer'>";
-        
+
         $this->form .= "<br><input type = 'submit' value = 'Envoyer'>";
     }
 
@@ -40,13 +40,21 @@ class Form
     }
 }
 
-class Form2 extends Form{
-    public function setRadio(string $id,string $name, string $label = '') :void{
-        $this->form .= "<input type = 'radio' id ='" . $id ."' name = '" . $name . "' <label for = '" . $id . "'>" . $label . "</label>";
-    }
+class Form2 extends Form
+{
+    // public function setRadio(string $id, string $name, string $label = ''): void
+    // {
+    //     $this->form .= "<input type = 'radio' id ='" . $id . "' name = '" . $name . "' <label for = '" . $id . "'>" . $label . "</label>";
+    // }
 
-    public function setCheckbox(string $id,string $name) :void{
-        $this->form .= "<input type = 'checkbox' id ='" . $id ."' name = '" . $name . "'>";
+    // public function setCheckbox(string $id, string $name, string $label = ''): void
+    // {
+    //     $this->form .= "<input type = 'checkbox' id ='" . $id . "' name = '" . $name . "' <label for = '" . $id . "'>" . $label . "</label>";
+    // }
+
+    public function setRadioCheckbox(string $type, string $id, string $name, string $label = ''): void
+    {
+        $this->form .= "<input type = '$type' id ='" . $id . "' name = '" . $name . "' <label for = '" . $id . "'>" . $label . "</label>";
     }
 }
 
@@ -59,9 +67,16 @@ $form->setSubmit();
 echo $form->getForm();
 
 $form2 = new Form2("post");
-$form2->setRadio("fr", "Nationalité", "Français");
-$form2->setRadio("it", "Nationalité", "Italien");
-$form2->setRadio("Cnd", "Nationalité", "Canadien");
+// $form2->setRadio("fr", "Nationalité", "Français");
+// $form2->setRadio("it", "Nationalité", "Italien");
+// $form2->setRadio("Cnd", "Nationalité", "Canadien");
 
+// $form2->setCheckbox("fr", "Nationalité", "Français");
+// $form2->setCheckbox("it", "Nationalité", "Italien");
+// $form2->setCheckbox("Cnd", "Nationalité", "Canadien");
+
+$form2->setRadioCheckbox("radio", "fr", "Nationalité", "Français");
+$form2->setRadioCheckbox("radio", "it", "Nationalité", "Italien");
+$form2->setRadioCheckbox("radio", "Cnd", "Nationalité", "Canadien");
 $form2->setSubmit();
 echo $form2->getForm();
