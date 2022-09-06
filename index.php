@@ -3,7 +3,7 @@
 class Form
 {
 
-    private string $form;
+    protected string $form;
     // 3 initialiser les propriétés nécessaires si besoin d'un get
     // private $method;
     // 2 rajouter les attribue de ma fonction si besoin
@@ -30,8 +30,8 @@ class Form
     public function setSubmit(): void
     {
         // echo "<bouton type = 'submit' value = 'Envoyer'>";
-
-        $this->form .= "<input type = 'submit' value = 'Envoyer'>";
+        
+        $this->form .= "<br><input type = 'submit' value = 'Envoyer'>";
     }
 
     public function getForm(): string
@@ -41,8 +41,12 @@ class Form
 }
 
 class Form2 extends Form{
-    public function setRadio(string $id,string $name) :void{
-        $this->form .= "<input type = 'radio' id ='" . $id ."' name = '" . $name . "'>";
+    public function setRadio(string $id,string $name, string $label = '') :void{
+        $this->form .= "<input type = 'radio' id ='" . $id ."' name = '" . $name . "' <label for = '" . $id . "'>" . $label . "</label>";
+    }
+
+    public function setCheckbox(string $id,string $name) :void{
+        $this->form .= "<input type = 'checkbox' id ='" . $id ."' name = '" . $name . "'>";
     }
 }
 
@@ -53,3 +57,11 @@ $form->setText("firsname");
 $form->setSubmit();
 // afficher le formulaire après le renvoie
 echo $form->getForm();
+
+$form2 = new Form2("post");
+$form2->setRadio("fr", "Nationalité", "Français");
+$form2->setRadio("it", "Nationalité", "Italien");
+$form2->setRadio("Cnd", "Nationalité", "Canadien");
+
+$form2->setSubmit();
+echo $form2->getForm();
