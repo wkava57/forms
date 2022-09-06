@@ -76,7 +76,7 @@ $form2 = new Form2("post");
 // $form2->setCheckbox("Cnd", "Nationalité", "Canadien");
 
 $form2->setRadioCheckbox("radio", "fr", "Nationalité", "Français");
-$form2->setRadioCheckbox("radio", "it", "Nationalité", "Italien");
+$form2->setRadioCheckbox("radio", "Tr", "Nationalité", "Turque");
 $form2->setRadioCheckbox("radio", "Cnd", "Nationalité", "Canadien");
 
 $form2->setRadioCheckbox("checkbox", "fr", "Nationalité", "Français");
