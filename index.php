@@ -39,6 +39,14 @@ class Form
         return $this->form . "</fieldset></form>";
     }
 }
+
+class Form2 extends Form{
+    public function setRadio(string $id,string $name) :void{
+        $this->form .= "<input type = 'radio' id ='" . $id ."' name = '" . $name . "'>";
+    }
+}
+
+
 $form = new Form("post");
 $form->setText("name");
 $form->setText("firsname");
